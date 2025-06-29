@@ -29,15 +29,25 @@
         .article {
             background-color: #1e1e1e;
             padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.7);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .article:hover {
+            transform: scale(1.02);
         }
         .article img {
             width: 100%;
             border-radius: 8px;
             margin-top: 10px;
             margin-bottom: 10px;
+            filter: blur(8px);
+            transition: filter 1s ease;
+        }
+        .article.in-view img {
+            filter: blur(0);
         }
         .source {
             color: #aaaaaa;
@@ -89,6 +99,24 @@
     <div class="footer">
         <p>TechnoSpark Newsroom &copy; 2025 | Can you tell what's real and what's fake? 😉</p>
     </div>
+
+    <script>
+        const articles = document.querySelectorAll('.article');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                } else {
+                    entry.target.classList.remove('in-view');
+                }
+            });
+        }, { threshold: 0.6 }); // Trigger when 60% of the card is visible
+
+        articles.forEach(article => {
+            observer.observe(article);
+        });
+    </script>
 
 </body>
 </html>
