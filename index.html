@@ -15,7 +15,16 @@
         }
         h1 {
             text-align: center;
-            color: #ffffff;
+            color: #00bcd4;
+            animation: fadeInScale 1s ease forwards;
+            transform: scale(0.8);
+            opacity: 0;
+        }
+        @keyframes fadeInScale {
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
         .article {
             background-color: #1e1e1e;
@@ -47,8 +56,7 @@
 </head>
 <body>
 
-    <h1>📰 TechnoSpark Newsroom</h1>
-    <p style="text-align:center; color: #cccccc;">Can you guess which news is real and which is fake?</p>
+    <h1>📰 <span style="color:#ff4081;">Techno</span><span style="color:#00bcd4;">Spark</span> Newsroom</h1>
 
     <div class="article">
         <h2>Apple Unveils First Foldable iPhone, Set to Launch in 2026</h2>
