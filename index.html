@@ -44,7 +44,7 @@
             margin-top: 10px;
             margin-bottom: 10px;
             filter: blur(8px);
-            transition: filter 1s ease;
+            transition: filter 2s ease; /* Slower un-blur for smoother effect */
         }
         .article.in-view img {
             filter: blur(0);
@@ -111,7 +111,7 @@
                     entry.target.classList.remove('in-view');
                 }
             });
-        }, { threshold: 0.6 }); // Trigger when 60% of the card is visible
+        }, { threshold: 0.9 }); // Trigger when 90% of the card is visible
 
         articles.forEach(article => {
             observer.observe(article);
